@@ -1,0 +1,57 @@
+<head>
+  <title>resounding</title>
+</head>
+
+<body>
+	{{> header}}
+  {{> map}}
+  {{> hello}}
+
+</body>
+
+<template name="header">
+	<div class="header">
+		<div class="logo">((( Resounding )))</div>
+		{{#if currentUser}}
+			{{> logout}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="map">
+	{{#if currentUser}}
+		{{#each loggedInUsers	}}
+			{{> userPin}}
+		{{/each}}
+	{{/if}}
+	{{#unless currentUser}}
+		{{>login}}
+	{{/unless}}
+	<br>
+	<canvas id="myCanvas"></canvas>
+</template>
+
+<template name="login">
+	<div id="loginField" contenteditable="true">Nameless Singer</div>
+	<div class="instructions">(Enter your name, then press enter to login)</div>
+</template>
+
+<template name="logout">
+	<span class="loggedInAs">
+		Logged in as {{currentUser.username}}
+		<span id="logout loggedInAs">(click to logout)</span>
+	</span>
+</template>
+
+<template name="userPin">
+	<div class="{{this._id}} userPin">
+		<span class="{{this.volume}} pulse"></span>
+		{{username}}
+		{{volume this._id}}
+	</div>
+</template>
+
+<template name="hello">
+	{{latitude}}<br>
+	{{longitude}}<br>	
+</template>

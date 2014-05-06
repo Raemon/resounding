@@ -1,0 +1,27 @@
+/* CSS declarations go here */
+
+
+* {
+  padding: 0;
+  margin: 0;
+	font-family:"Arial";
+	font-size: 12px;
+}
+
+.header {
+	background-color:#55AAFF;
+	text-align: center;
+	padding: 20px 0px 20px 0px;
+}
+
+.loggedInAs {
+	color:white;
+	font-size:10px;
+	font-style:italic;
+}
+
+.logo {
+	font-size: 50px;
+	color:white;
+	vertical-align: center;
+}
